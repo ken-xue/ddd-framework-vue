@@ -114,8 +114,8 @@ const actions = {
 export function generaMenu(routes, data) {
   data.forEach(item => {
     let menu = {
-      // path必须/开通不然会显示空白
-      path: item.menuUrl === '' ? item.id : '/' + item.menuUrl + item.id,
+      // path必须/开头不然会显示空白
+      path: '/' + item.menuUrl + item.id,
       component: item.menuType === 0 ? Layout : (resolve) => require([`@/views/${item.menuUrl}/index`], resolve),
       children: [],
       name: 'menu_' + item.id,
